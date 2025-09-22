@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Status Roblox</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      .status {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Status dos Jogadores</h1>
+    <div class="status">Carregando...</div>
+    <div class="players"></div>
+
+    <script>
+      async function loadStatus() {
+        const res = await fetch("/status");
+        const data = await res.json();
+
+        document.querySelector(".status").textContent = `Última checagem: ${
+          data.lastCheck ? new Date(data.lastCheck).toLocaleString() : "-"
+        }`;
+
+        const playersDiv = document.querySelector(".players");
+        playersDiv.innerHTML = "";
+        if (Array.isArray(data.players)) {
+          data.players.forEach((player) => {
+            const div = document.createElement("div");
+            div.style.marginBottom = "18px";
+            div.innerHTML = `
+            <strong>ID:</strong> ${player.id}<br>
+            <strong>Status:</strong> ${player.lastStatus}<br>
+            <strong>Total online:</strong> ${player.totalOnlineMinutes} min<br>
+            <strong>Tempo por jogo:</strong>
+            <ul>
+              ${Object.entries(player.games || {})
+                .map(([game, min]) => `<li>${game}: ${min} min</li>`)
+                .join("")}
+            </ul>
+          `;
+            playersDiv.appendChild(div);
+          });
+        }
+      }
+
+      loadStatus();
+      setInterval(loadStatus, 5000); // atualiza de 5 em 5s
+    </script>
+  </body>
+</html>

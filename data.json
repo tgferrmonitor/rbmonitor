@@ -1,0 +1,42 @@
+{
+  "players": [
+    {
+      "id": "2616521101",
+      "totalOnlineSeconds": 2838,
+      "games": {
+        "Construa Um Barco Por Tesouro": 2769,
+        "Website": 69
+      },
+      "lastStatus": "online",
+      "lastSeenAt": "2025-09-22T16:06:02.443Z"
+    }
+  ],
+  "lastCheck": "2025-09-22T20:23:12.918Z",
+  "playerMap": {
+    "2616521101": {
+      "id": 2616521101,
+      "name": "garagemer79",
+      "displayName": "mOwly_79"
+    },
+    "7738147772": {
+      "id": 7738147772,
+      "name": "paimeureipai",
+      "displayName": "tiagifiwhwhdoieg2123"
+    },
+    "8631412913": {
+      "id": 8631412913,
+      "name": "SuperHugo022",
+      "displayName": "SuperHugo022"
+    },
+    "9005903775": {
+      "id": 9005903775,
+      "name": "hegejeg78",
+      "displayName": "hegejeg78"
+    },
+    "8419659295": {
+      "id": 8419659295,
+      "name": "udhdu778igdjv",
+      "displayName": "udhdu778igdjv"
+    }
+  }
+}
